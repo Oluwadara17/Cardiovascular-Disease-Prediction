@@ -5,13 +5,15 @@ Data Preparation
 
 # Task
 
-The task is to predict whether patient have 10 year risk of coronary heart disease CHD or not. Additionally, participants also asked to create some data visualization about the data to gained actionable insight about the topic.
+The task is to predict whether patient have 10 year risk of coronary heart disease CHD or not. Additionally, participants also asked to create some data visualization about the data to gained actionable insight about the topic. 
+**Note: More information can be found at 'DA_PY_4_4.ipynb'.**
+
 
 # Source
 
 The dataset is publically available on the Kaggle website, and it is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. The classification goal is to predict whether the patient has 10-year risk of future coronary heart disease (CHD).The dataset provides the patients’ information. It includes over 4,000 records and 15 attributes.
 
-#About Data
+# About Data
 
 The dataset is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. The classification goal is to predict whether the patient has a 10-year risk of future coronary heart disease (CHD). The dataset provides the patients’ information. It includes over 3390 records and 15 attributes.
 
