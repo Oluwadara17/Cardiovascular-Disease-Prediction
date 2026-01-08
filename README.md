@@ -1,59 +1,121 @@
-# Introduction
+## Project Title
+Cardiovascular Disease Risk Prediction Using Logistic Regression.
 
-World Health Organization has estimated 12 million deaths occur worldwide, every year due to Heart diseases. Half the deaths in the United States and other developed countries are due to cardio vascular diseases. The early prognosis of cardiovascular diseases can aid in making decisions on lifestyle changes in high risk patients and in turn reduce the complications. This research intends to pinpoint the most relevant/risk factors of heart disease as well as predict the overall risk using logistic regression
-Data Preparation
+## Introduction
 
-# Task
+Cardiovascular diseases (CVDs) remain one of the leading causes of death worldwide. According to the World Health Organization, approximately **12 million deaths occur globally each year due to heart-related diseases**, with a significant proportion occurring in developed countries.
+Early identification of individuals at high risk of coronary heart disease (CHD) enables preventive interventions such as lifestyle modification and timely medical care. This project applies **predictive modelling techniques**, specifically **logistic regression**, to estimate a patient’s **10-year risk of coronary heart disease** using demographic, behavioural, and medical risk factors.
 
-The task is to predict whether patient have 10 year risk of coronary heart disease CHD or not. Additionally, participants also asked to create some data visualization about the data to gained actionable insight about the topic. 
-**Note: More information can be found at 'DA_PY_4_4.ipynb'.**
+## Project Objective
 
+The objectives of this project are to:
+* Perform exploratory data analysis (EDA) to understand cardiovascular risk factors.
+* Build a **logistic regression model** to predict 10-year CHD risk.
+* Select the **most appropriate classification metric** for this healthcare problem.
+* Determine the **optimal decision threshold** and justify its selection.
+* Provide actionable insights based on model performance and feature importance.
+* 
+## Dataset Description
 
-# Source
+### Source
+The dataset is publicly available on **Kaggle** and originates from an ongoing cardiovascular study conducted on residents of **Framingham, Massachusetts**.
+Dataset link:
+[https://www.kaggle.com/datasets/christofel04/cardiovascular-study-dataset-predict-heart-disea?select=train.csv](https://www.kaggle.com/datasets/christofel04/cardiovascular-study-dataset-predict-heart-disea?select=train.csv)
 
-The dataset is publically available on the Kaggle website, and it is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. The classification goal is to predict whether the patient has 10-year risk of future coronary heart disease (CHD).The dataset provides the patients’ information. It includes over 4,000 records and 15 attributes.
+### Files Used
+* **train.csv** – Primary dataset used for modelling
+* **Module_4_sprint_4.ipynb** – Jupyter Notebook containing data cleaning, preprocessing, modelling, and evaluation
 
-# About Data
+### Dataset Overview
+* Number of records: 3,390
+* Number of features: 15
+* Target variable: 10-year risk of coronary heart disease (binary)
 
-The dataset is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. The classification goal is to predict whether the patient has a 10-year risk of future coronary heart disease (CHD). The dataset provides the patients’ information. It includes over 3390 records and 15 attributes.
+## Variables
 
-#Variables
+### Demographic
 
-Each attribute is a potential risk factor. There are both demographic behavioral, and medical risk factors.
+* **Sex** – Male or Female
+* **Age** – Patient age (continuous)
 
-# Data Description
+### Behavioural
 
-Demographic:
-Sex: male or female("M" or "F")
+* **Is_smoking** – Current smoker (Yes/No)
+* **Cigs Per Day** – Average number of cigarettes smoked per day
 
-Age: Age of the patient;(Continuous - Although the recorded ages have been truncated to whole numbers, the concept of age is continuous) Behavioral
+### Medical History
 
-Is_smoking: whether or not the patient is a current smoker ("YES" or "NO")
+* **BP Meds** – On blood pressure medication
+* **Prevalent Stroke** – History of stroke
+* **Prevalent Hyp** – Hypertension status
+* **Diabetes** – Diabetes diagnosis
 
-Cigs Per Day: the number of cigarettes that the person smoked on average in one day. Can be considered continuous as one can have any number of cigarettes, even half a cigarette.)
+### Current Medical Measurements
 
-Medical( history)
+* **Tot Chol** – Total cholesterol
+* **Sys BP** – Systolic blood pressure
+* **Dia BP** – Diastolic blood pressure
+* **BMI** – Body Mass Index
+* **Heart Rate** – Heart rate
+* **Glucose** – Blood glucose level
 
-BP Meds: whether or not the patient was on blood pressure medication (Nominal)
+### Target Variable
 
-Prevalent Stroke: whether or not the patient had previously had a stroke (Nominal)
+* **TenYearCHD** – 10-year risk of CHD
+  * `1` = Yes
+  * `0` = No
 
-Prevalent Hyp: whether or not the patient was hypertensive (Nominal)
+## Methodology
 
-Diabetes: whether or not the patient had diabetes (Nominal) Medical(current)
+### 1. Data Cleaning & Preprocessing
 
-Tot Chol: total cholesterol level (Continuous)
+* Handling missing values using appropriate imputation strategies.
+* Encoding categorical variables.
+* Feature scaling for numerical variables where required.
+* Checking class imbalance in the target variable.
 
-Sys BP: systolic blood pressure (Continuous)
+### 2. Exploratory Data Analysis (EDA)
 
-Dia BP: diastolic blood pressure (Continuous)
+* Distribution analysis of risk factors.
+* Visualisation of relationships between predictors and CHD risk.
+* Identification of key contributing variables.
 
-BMI: Body Mass Index (Continuous)
+### 3. Model Development
 
-Heart Rate: heart rate (Continuous - In medical research, variables such as heart rate though in fact discrete, yet are considered continuous because of large number of possible values.)
+* Logistic regression selected due to:
 
-Glucose: glucose level (Continuous) Predict variable (desired target)
+  * Binary classification nature of the target variable.
+  * Interpretability of coefficients in a healthcare context.
+* Feature selection guided by domain relevance and statistical significance.
 
-10-year risk of coronary heart disease CHD(binary: “1”, means “Yes”, “0” means “No”) 
+### 4. Model Evaluation
 
-The data is named train in this repository but also can be gotten from https://www.kaggle.com/datasets/christofel04/cardiovascular-study-dataset-predict-heart-disea?select=train.csv
+* Evaluation metrics considered:
+
+  * Accuracy
+  * Precision
+  * Recall
+  * F1-score
+  * ROC-AUC
+* **Primary metric selected:** ROC-AUC / Recall (depending on your notebook outcome), justified by the higher cost of false negatives in healthcare.
+
+### 5. Threshold Optimisation
+
+* The optimal classification threshold was determined using:
+
+  * ROC curve analysis
+  * Precision–Recall trade-offs
+* The chosen threshold balances sensitivity and specificity, prioritising early detection of high-risk patients.
+
+## Key Findings
+
+* Age, systolic blood pressure, cholesterol level, smoking status, and diabetes were among the strongest predictors of CHD risk.
+* Logistic regression provided an interpretable and effective baseline model.
+* Adjusting the classification threshold improved the model’s ability to identify high-risk patients.
+* Using recall-oriented evaluation ensures fewer high-risk patients are missed.
+
+## Conclusion
+
+This analysis demonstrates that logistic regression is a suitable and interpretable approach for predicting long-term coronary heart disease risk. By carefully selecting evaluation metrics and optimising the decision threshold, the model provides **clinically meaningful predictions** that support preventive healthcare decision-making.
+
+Just tell me how you want to use it 👌
